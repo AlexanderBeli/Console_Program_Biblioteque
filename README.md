@@ -2,6 +2,8 @@
 
 This is a small console program showing the way how to add data like title,  author, year to the JSON file and how to interact with it. You can see that I use uuid4 for creating ID. Also you can see the file test.py where I mock some behaviour of the program for testing purposes.
 
+About functionality: in this application you can add and delete data, change status, search information.
+
 ## First steps
 
 Let's watch how to start application development, based on this template. 
@@ -23,7 +25,7 @@ Follow the instructions on the screen.
 
 ## Tests
 
-I used two testing methods: unittest in tests.py and manual testing. 
+I used two testing methods: unittest in tests.py and manual testing.  
 
 ## License
 
