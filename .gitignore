@@ -1,3 +1,5 @@
 .venv
+.idea
 __pychache__/
+src/__pychache__
 .DS_Store
