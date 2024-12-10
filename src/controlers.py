@@ -28,8 +28,21 @@ class BibliotequeController:
     def main_menu(self) -> str:
         return input(MESSAGES["start_menu"])
 
-    def search_menu(self) -> str:
-        return input(MESSAGES["search_menu"])
+    def search_menu(self):
+        search_request = input(MESSAGES["search_menu"])
+        #     self.search_menu_action(search_request)
+
+        # def search_menu_action(self, search_request: str):
+        if search_request == "1":
+            self.searching_by_title()
+
+        elif search_request == "2":
+            self.searching_by_author()
+
+        elif search_request == "3":
+            self.searching_by_year()
+        else:
+            print(MESSAGES["command_not_exist"])
 
     def show_search_results(self, results: dict) -> None:
         for result in results:

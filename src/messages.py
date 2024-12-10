@@ -25,6 +25,7 @@ MESSAGES = {
     "title": "Название",
     "year": "Год издания",
     "id": "id",
+    "mistake": "Ошибка",
     # Поиск
     "searching_title": "Напишите название книги:\n",
     "searching_author": "Напишите автора книги:\n",

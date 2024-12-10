@@ -28,6 +28,10 @@ Follow the instructions on the screen.
 I used two testing methods: unittest in tests.py and manual testing.  
 
 ## Version History & Description
+**10.12.2024  v 1.2.0 - Third release**
+
+Pattern matching
+
 **10.12.2024  v 1.1.0 - Second release**
 
 Search optimization
