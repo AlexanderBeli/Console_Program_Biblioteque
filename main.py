@@ -29,7 +29,7 @@ def main() -> None:
                 case _:
                     print(MESSAGES["command_not_exist"])
         except ValueError as err:
-            print(MESSAGES["mistake"] + ":\n" + err)
+            raise ValueError(MESSAGES["mistake"] + ":\n" + err)
 
 
 if __name__ == "__main__":

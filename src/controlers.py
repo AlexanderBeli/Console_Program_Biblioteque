@@ -17,7 +17,7 @@ class BibliotequeController:
                 biblioteque_data = json.load(biblioteque_opened_for_reading)
             return biblioteque_data
         except FileNotFoundError:
-            print(MESSAGES["file_not_found_error"])
+            raise FileNotFoundError(MESSAGES["file_not_found_error"])
 
     def add_to_biblioteque(self, data: dict) -> None:
         with open(
@@ -42,7 +42,7 @@ class BibliotequeController:
         elif search_request == "3":
             self.searching_by_year()
         else:
-            print(MESSAGES["command_not_exist"])
+            raise ValueError(MESSAGES["command_not_exist"])
 
     def show_search_results(self, results: dict) -> None:
         for result in results:
@@ -73,11 +73,11 @@ class BibliotequeController:
             if word == books[book][category]:
                 results[book] = books[book]
             else:
-                return MESSAGES["book_not_found_error"]
+                raise ValueError(MESSAGES["book_not_found_error"])
         if len(results) != 0:
             self.show_search_results(results)
         else:
-            return MESSAGES["book_not_found_error"]
+            raise ValueError(MESSAGES["book_not_found_error"])
 
     def input_main_book_info(self) -> tuple[str, str, str, str]:
         title: str = input(MESSAGES["add_book_title"])
@@ -112,7 +112,7 @@ class BibliotequeController:
             biblioteque_data = self.open_biblioteque()
             self.show_search_results(biblioteque_data)
         else:
-            print(MESSAGES["file_not_found_error"])
+            raise FileNotFoundError(MESSAGES["file_not_found_error"])
 
     def delete_the_book(self) -> None:
         print(MESSAGES["delete_book_info"])
@@ -124,7 +124,7 @@ class BibliotequeController:
                 biblioteque_data.pop(book_id)
                 self.add_to_biblioteque(biblioteque_data)
             else:
-                return MESSAGES["book_not_found_error"]
+                raise ValueError(MESSAGES["book_not_found_error"])
 
     def change_status(self) -> None:
         print(MESSAGES["change_book_info"])
@@ -142,8 +142,8 @@ class BibliotequeController:
                         "status_no_available"
                     ]
                 else:
-                    print(MESSAGES["command_not_exist"])
+                    raise ValueError(MESSAGES["command_not_exist"])
             else:
-                print(MESSAGES["id_not_exist"])
+                raise ValueError(MESSAGES["id_not_exist"])
 
                 self.add_to_biblioteque(biblioteque_data)
