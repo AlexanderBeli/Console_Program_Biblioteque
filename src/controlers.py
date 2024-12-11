@@ -7,7 +7,7 @@ from src.messages import MESSAGES
 
 class BibliotequeController:
 
-    __biblioteque_adress = ".data/biblioteque.json"
+    __biblioteque_adress: str = ".data/biblioteque.json"
 
     def open_biblioteque(self) -> dict:
         try:
@@ -67,7 +67,7 @@ class BibliotequeController:
         self.searching_engine(searching_year, "year")
 
     def searching_engine(self, word: str, category: str) -> None:
-        books = self.open_biblioteque()
+        books: dict = self.open_biblioteque()
         results = {}
         for book in books:
             if word == books[book][category]:
@@ -80,32 +80,32 @@ class BibliotequeController:
             return MESSAGES["book_not_found_error"]
 
     def input_main_book_info(self) -> tuple[str, str, str, str]:
-        title = input(MESSAGES["add_book_title"])
-        author = input(MESSAGES["add_book_author"])
-        year = input(MESSAGES["add_book_year"])
-        status = MESSAGES["status_default"]
+        title: str = input(MESSAGES["add_book_title"])
+        author: str = input(MESSAGES["add_book_author"])
+        year: str = input(MESSAGES["add_book_year"])
+        status: str = MESSAGES["status_default"]
         return title, author, year, status
 
     def add_book_controller(self) -> None:
-        id, data = self.get_the_book_information()
+        book_id, data = self.get_the_book_information()
         if not os.path.exists(self._BibliotequeController__biblioteque_adress):
-            data_for_dumping = {id: data}
+            data_for_dumping = {book_id: data}
             self.add_to_biblioteque(data_for_dumping)
         else:
             biblioteque_data = self.open_biblioteque()
-            biblioteque_data[id] = data
+            biblioteque_data[book_id] = data
             self.add_to_biblioteque(biblioteque_data)
 
     def get_the_book_information(self) -> tuple[str, dict[str, str]]:
         title, author, year, status = self.input_main_book_info()
-        id = str(uuid.uuid4())
+        book_id = str(uuid.uuid4())
         data = {
             "title": title,
             "author": author,
             "year": year,
             "status": status,
         }
-        return id, data
+        return book_id, data
 
     def list_books(self) -> None:
         if os.path.exists(self._BibliotequeController__biblioteque_adress):
