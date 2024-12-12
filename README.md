@@ -28,9 +28,19 @@ Follow the instructions on the screen.
 I used two testing methods: unittest in tests.py and manual testing.  
 
 ## Version History & Description
+**12.12.2024  v 1.3.0 - Forth release**
+
+ABC, abstractmethod, dataclass
+
+Layered architecture, onion architecture
+
 **10.12.2024  v 1.2.0 - Third release**
 
 Pattern matching
+
+raise ValueError added
+
+Logger added
 
 **10.12.2024  v 1.1.0 - Second release**
 
