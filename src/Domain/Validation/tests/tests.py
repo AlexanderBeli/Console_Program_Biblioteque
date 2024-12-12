@@ -1,8 +1,8 @@
 import unittest
 
-from Domain.ValueObject.BookAuthor import BookAuthor
-from Domain.ValueObject.BookTitle import BookTitle
-from Domain.ValueObject.BookYear import BookYear
+from src.Domain.ValueObject.BookAuthor import BookAuthor
+from src.Domain.ValueObject.BookTitle import BookTitle
+from src.Domain.ValueObject.BookYear import BookYear
 
 
 class TestValueObject(unittest.TestCase):

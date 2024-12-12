@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from Domain.Validation import BookValidation
-from Domain.ValueObject.AbstractInputOutput import InputOutput
+from src.Domain.Validation import BookValidation
+from src.Domain.ValueObject.AbstractInputOutput import InputOutput
 
 
 @dataclass

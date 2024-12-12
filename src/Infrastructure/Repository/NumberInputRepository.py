@@ -1,21 +1,17 @@
-from Domain.Repository.NumberInputPortInterface import NumberInputPortInterface
-from messages import MESSAGES
+from src.Domain.Repository.NumberInputPortInterface import NumberInputPortInterface
+from src.messages import MESSAGES
 
 
 class CliNumberInputPort(NumberInputPortInterface):
 
     def type_number_start_menu(self) -> str:
         cli_type_number_start_menu = input(MESSAGES["start_menu"])
-        checked_cli_type_number_start_menu = self.type_number_validation(
-            cli_type_number_start_menu
-        )
+        checked_cli_type_number_start_menu = self.type_number_validation(self, cli_type_number_start_menu)
         return checked_cli_type_number_start_menu
 
     def type_number_search_menu(self) -> str:
         cli_type_number_search_menu = input(MESSAGES["search_menu"])
-        checked_cli_type_number_search_menu = self.type_number_validation(
-            cli_type_number_search_menu
-        )
+        checked_cli_type_number_search_menu = self.type_number_validation(self, cli_type_number_search_menu)
         return checked_cli_type_number_search_menu
 
     @staticmethod

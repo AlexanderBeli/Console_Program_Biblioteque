@@ -1,11 +1,11 @@
-from Domain.Repository.InformationInputPortInterface import (
+from src.Domain.Repository.InformationInputPortInterface import (
     InformationInputPortInterface,
 )
-from Domain.ValueObject.BookTitle import BookTitle
-from Domain.ValueObject.BookAuthor import BookAuthor
-from Domain.ValueObject.BookYear import BookYear
-from Domain.ValueObject.BookId import BookId
-from messages import MESSAGES
+from src.Domain.ValueObject.BookTitle import BookTitle
+from src.Domain.ValueObject.BookAuthor import BookAuthor
+from src.Domain.ValueObject.BookYear import BookYear
+from src.Domain.ValueObject.BookId import BookId
+from src.messages import MESSAGES
 
 
 class CliInformationInputPort(InformationInputPortInterface):

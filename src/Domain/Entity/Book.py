@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from ValueObject import BookAuthor, BookId, BookTitle, BookYear, BookStatus
+from src.Domain.ValueObject import BookAuthor, BookId, BookTitle, BookYear, BookStatus
 
 
 # Так как ввод будет осуществляться постепенно, проверка должна происходить постепенно,

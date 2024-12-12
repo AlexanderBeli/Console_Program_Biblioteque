@@ -1,6 +1,6 @@
-from Domain.Entity.Book import Book
-from Infrastructure.Repository.InformationInputRepository import CliInformationInputPort
-from messages import MESSAGES
+from src.Domain.Entity.Book import Book
+from src.Infrastructure.Repository.InformationInputRepository import CliInformationInputPort
+from src.messages import MESSAGES
 import os
 import json
 

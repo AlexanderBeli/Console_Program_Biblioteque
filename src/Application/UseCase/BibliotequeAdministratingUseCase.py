@@ -1,12 +1,12 @@
-from Infrastructure.Repository.InformationInputRepository import CliInformationInputPort
-from Infrastructure.Repository.NumberInputRepository import CliNumberInputPort
+from src.Infrastructure.Repository.InformationInputRepository import CliInformationInputPort
+from src.Infrastructure.Repository.NumberInputRepository import CliNumberInputPort
 
-from messages import MESSAGES
-from CreateBookUseCase import CreateBook
-from DeleteBookUseCase import DeleteBook
-from SearchBooksUseCase import SearchBooks
-from ListBooksUseCase import ListBooks
-from ChangeStatusUseCase import ChangeStatus
+from src.messages import MESSAGES
+from src.Application.UseCase.CreateBookUseCase import CreateBook
+from src.Application.UseCase.DeleteBookUseCase import DeleteBook
+from src.Application.UseCase.SearchBooksUseCase import SearchBooks
+from src.Application.UseCase.ListBooksUseCase import ListBooks
+from src.Application.UseCase.ChangeStatusUseCase import ChangeStatus
 
 
 class CreateBookUseCase:

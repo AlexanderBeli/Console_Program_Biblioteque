@@ -28,6 +28,10 @@ Follow the instructions on the screen.
 I used two testing methods: unittest in tests.py and manual testing.  
 
 ## Version History & Description
+**12.12.2024  v 1.3.1 - Fifth release**
+
+Bugs fixed
+
 **12.12.2024  v 1.3.0 - Forth release**
 
 ABC, abstractmethod, dataclass
