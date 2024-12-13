@@ -1,5 +1,5 @@
-from src.messages import MESSAGES
-from src.Application.UseCase.BibliotequeAdministratingUseCase import run
+from src.config.messages import MESSAGES
+from src.presentation.cli.logic import run
 
 
 if __name__ == "__main__":
