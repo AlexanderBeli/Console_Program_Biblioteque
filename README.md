@@ -28,7 +28,7 @@ Follow the instructions on the screen.
 I used two testing methods: unittest in tests.py and manual testing.  
 
 ## Version History & Description
-**14.12.2024  v 1.3.2 - Seventh release**
+**14.12.2024  v 1.3.3 - Seventh release**
 
 Code Optimized
 
