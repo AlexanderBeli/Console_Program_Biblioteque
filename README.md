@@ -28,7 +28,15 @@ Follow the instructions on the screen.
 I used two testing methods: unittest in tests.py and manual testing.  
 
 ## Version History & Description
-**12.12.2024  v 1.3.2 - Sixth release**
+**14.12.2024  v 1.3.2 - Seventh release**
+
+Code Optimized
+
+Post_Init added
+
+Input changed to InputPort
+
+**13.12.2024  v 1.3.2 - Sixth release**
 
 Adjusted Architecture
 

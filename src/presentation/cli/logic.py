@@ -7,9 +7,9 @@ from src.application.use_case.delete_book_use_case import DeleteBookUseCase
 from src.application.use_case.search_books_use_case import SearchBooks
 from src.application.use_case.list_books_use_case import ListBooks
 from src.application.use_case.change_status_use_case import ChangeStatus
-from src.infrastructure.repository.library_crud_operations import Library
-from src.infrastructure.repository.json_data_file_operations import JsonDataFile
+import logging
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def run() -> None:
     while True:
@@ -20,23 +20,19 @@ def run() -> None:
                 raise ValueError(MESSAGES["command_not_exist"])
             match choice:
                 case "1":
-                    book = CreateBookUseCase(action).execute()
-                    open_library = Library()
-                    book_data = open_library.get_data_from_Book(book)
-                    book_id = open_library.get_book_id()
-                    save_book_data = JsonDataFile().add_book_controller(book_id, book_data)
+                    CreateBookUseCase(action).execute()
                 case "2":
-                    DeleteBookUseCase().delete_the_book()
+                    DeleteBookUseCase().execute()
                 case "3":
-                    SearchBooks().search_menu()
+                    SearchBooks(action).search_menu()
                 case "4":
-                    ListBooks().list_books()
+                    ListBooks().execute()
                 case "5":
-                    ChangeStatus().change_status()
+                    ChangeStatus().execute()
                 case "6":
-                    print(MESSAGES["exit_message"])
+                    logging.info(MESSAGES["exit_message"])
                     break
                 case _:
-                    print(MESSAGES["command_not_exist"])
+                    logging.error(MESSAGES["command_not_exist"])
         except ValueError as err:
             raise ValueError(MESSAGES["mistake"] + ":\n" + err)

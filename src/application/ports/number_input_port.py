@@ -14,6 +14,23 @@ class CliNumberInputPort(NumberInputPortInterface):
         checked_cli_type_number_search_menu = self.type_number_validation(self, cli_type_number_search_menu)
         return checked_cli_type_number_search_menu
 
+    def type_number_prove_delete(self) -> str:
+        print(MESSAGES["delete_book_info"])
+        cli_type_number_question = input(MESSAGES["delete_book_confirmation"])
+        checked_cli_type_number_question = self.type_number_validation(self, cli_type_number_question)
+        return checked_cli_type_number_question
+
+    def type_number_prove_change(self) -> str:
+        print(MESSAGES["change_book_info"])
+        cli_type_number_question = input(MESSAGES["change_book_confirmation"])
+        checked_cli_type_number_question = self.type_number_validation(self, cli_type_number_question)
+        return checked_cli_type_number_question
+
+    def type_number_change_status(self) -> str:
+        cli_type_number_question = input(MESSAGES["status_info"])
+        checked_cli_type_number_question = self.type_number_validation(self, cli_type_number_question)
+        return checked_cli_type_number_question
+
     @staticmethod
     def type_number_validation(self, typed_number):
         try:

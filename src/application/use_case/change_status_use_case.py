@@ -1,41 +1,33 @@
-from src.config.messages import MESSAGES
-import json
+from venv import logger
 
+from src.application.ports.information_input_port import InformationInputPort
+from src.application.ports.number_input_port import CliNumberInputPort
+from src.config.messages import MESSAGES
+
+from src.infrastructure.repository.json_data_file_operations import JsonDataFile
+
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class ChangeStatus:
 
-    __biblioteque_adress: str = ".data/biblioteque.json"
+    def execute(self) -> None:
+        change_status = CliNumberInputPort()
+        change_book_choice = change_status.type_number_prove_change()
 
-    def open_biblioteque(self) -> dict:
-        try:
-            with open(
-                self._ChangeStatus__biblioteque_adress, "r"
-            ) as biblioteque_opened_for_reading:
-                biblioteque_data = json.load(biblioteque_opened_for_reading)
-            return biblioteque_data
-        except FileNotFoundError:
-            raise FileNotFoundError(MESSAGES["file_not_found_error"])
-
-    def add_to_biblioteque(self, data: dict) -> None:
-        with open(
-            self._ChangeStatus__biblioteque_adress, "w"
-        ) as biblioteque_opened_for_writing:
-            json.dump(data, biblioteque_opened_for_writing)
-
-    def change_status(self) -> None:
-        print(MESSAGES["change_book_info"])
-        question = input(MESSAGES["change_book_confirmation"])
-        if int(question) == 1:
-            biblioteque_data = self.open_biblioteque()
-            book_id = input(MESSAGES["type_book_ID"])
+        if change_book_choice == "1":
+            biblioteque = JsonDataFile()
+            biblioteque_data = biblioteque.open_biblioteque()
+            book_id = InformationInputPort().type_id()
             if book_id in tuple(biblioteque_data.keys()):
-                print(
+                logging.info(
                     f"{MESSAGES["status"]}: {biblioteque_data[book_id]["status"]}\n",
                 )
-                status = input(MESSAGES["status_info"])
-                if int(status) == 1:
+                status = change_status.type_number_change_status()
+                if status == "1":
                     biblioteque_data[book_id]["status"] = MESSAGES["status_default"]
-                elif int(status) == 2:
+                elif status == "2":
                     biblioteque_data[book_id]["status"] = MESSAGES[
                         "status_no_available"
                     ]
@@ -44,4 +36,5 @@ class ChangeStatus:
             else:
                 raise ValueError(MESSAGES["id_not_exist"])
 
-            self.add_to_biblioteque(biblioteque_data)
+            biblioteque.add_to_biblioteque(biblioteque_data)
+

@@ -30,6 +30,3 @@ class JsonDataFile:
             biblioteque_data = self.open_biblioteque()
             biblioteque_data[book_id] = data
             self.add_to_biblioteque(biblioteque_data)
-
-    def delete_book_from_biblioteque(self) -> None:
-        pass
